@@ -61,16 +61,6 @@ namespace iTrucking
             pictureBox1.Image = result;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e) 
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e) // upd
         {
             kap4a_gen();
@@ -78,7 +68,7 @@ namespace iTrucking
 
         private void button1_Click(object sender, EventArgs e) // check
         {
-            trySignIn();
+            checkKap4a();
         }
 
         private void Kap4a_FormClosed(object sender, FormClosedEventArgs e)
@@ -86,7 +76,7 @@ namespace iTrucking
             Application.Exit();
         }
 
-        private void trySignIn()
+        private void checkKap4a()
         {
             tryCounter += 1;
             string t = textBox1.Text;
@@ -121,7 +111,7 @@ namespace iTrucking
         {
             if (e.KeyCode == Keys.Enter)
             {
-                trySignIn();
+                checkKap4a();
             }
         }
     }

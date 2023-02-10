@@ -23,17 +23,26 @@ namespace iTrucking
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) // login
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e) // pass
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e) // reg
+        {
+            trySignUp();
+        }
+
+        private void button1_Click(object sender, EventArgs e) // back
+        {
+            Hide();
+            Form1 f1 = new Form1();
+            f1.Show();
+        }
+
+        private void Reg_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+
+        private void trySignUp()
         {
             db_con.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("select номер_телефона from сотрудник", db_con);
@@ -83,16 +92,20 @@ namespace iTrucking
             db_con.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e) // back
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            Hide();
-            Form1 f1 = new Form1();
-            f1.Show();
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
         }
 
-        private void Reg_FormClosed(object sender, FormClosedEventArgs e)
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
-            Application.Exit();
+            if (e.KeyCode == Keys.Enter)
+            {
+                trySignUp();
+            }
         }
     }
 }

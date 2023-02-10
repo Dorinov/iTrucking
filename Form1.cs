@@ -33,16 +33,6 @@ namespace iTrucking
             trySignIn();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) // логин
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e) // пасс
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e) // регистрация
         {
             Reg reg = new Reg();
@@ -129,7 +119,15 @@ namespace iTrucking
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            //
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

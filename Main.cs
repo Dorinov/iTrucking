@@ -9,11 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using System.Security.Cryptography;
 
 namespace iTrucking
 {
     public partial class Main : Form
     {
+        Timer timer = new Timer();
+
         int tid = 0;
         int id = 0;
 
@@ -26,6 +29,12 @@ namespace iTrucking
         public Main()
         {
             InitializeComponent();
+            timer.Enabled = true;
+            timer.Tick += new EventHandler(utimer);
+        }
+        private void utimer(object sender, EventArgs e)
+        {
+            label2.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void button4_Click(object sender, EventArgs e) // ПОКАЗАТЬ ДАННЫЕ
@@ -38,6 +47,7 @@ namespace iTrucking
             dataGridView1.Columns.Clear();
             tid = 0;
             id = 0;
+            label1.Text = "";
             lockButtons();
         }
 
@@ -111,6 +121,7 @@ namespace iTrucking
             db_con.Open();
             dataGridView1.Columns.Clear();
             NpgsqlDataAdapter da = new NpgsqlDataAdapter("select * from " + arg, db_con);
+            label1.Text = "Активная таблица: " + arg;
             ds.Reset();
             da.Fill(ds);
             dt = ds.Tables[0];
@@ -176,5 +187,16 @@ namespace iTrucking
         {
             refr(tid);
         }
+
+        /*
+        private static string stolen_method(string q, bool cript)
+        {
+            byte[] s1 = (cript) ? System.Text.UTF8Encoding.UTF8.GetBytes(q) : Convert.FromBase64String(q);
+            SymmetricAlgorithm cripto = new RC2CryptoServiceProvider();
+            cripto.Key = new byte[] { 0x10, 0x24, 0x76, 0x45, 0x84, 0x64, 0x25, 0x34 };
+            cripto.IV = new byte[] { 0x14, 0x24, 0x76, 0x48, 0x84, 0x64, 0x25, 0x34 };
+            s1 = ((ICryptoTransform)((cript) ? cripto.CreateEncryptor() : cripto.CreateDecryptor())).TransformFinalBlock(s1, 0, s1.Length);
+            return (cript) ? Convert.ToBase64String(s1) : System.Text.UTF8Encoding.UTF8.GetString(s1).Trim();
+        }*/
     }
 }

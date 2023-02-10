@@ -35,6 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.таблицыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.должностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,8 @@
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button6 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -119,6 +121,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button5);
@@ -127,12 +130,23 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.menuStrip2);
-            this.panel1.Location = new System.Drawing.Point(12, 37);
+            this.panel1.Location = new System.Drawing.Point(12, 55);
             this.panel1.MaximumSize = new System.Drawing.Size(841, 333);
             this.panel1.MinimumSize = new System.Drawing.Size(841, 333);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(841, 333);
             this.panel1.TabIndex = 6;
+            // 
+            // button6
+            // 
+            this.button6.Enabled = false;
+            this.button6.Location = new System.Drawing.Point(560, 288);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(143, 39);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "Обновить данные";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // menuStrip2
             // 
@@ -226,27 +240,36 @@
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
-            // button6
+            // label1
             // 
-            this.button6.Enabled = false;
-            this.button6.Location = new System.Drawing.Point(560, 288);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(143, 39);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Обновить данные";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(299, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = " ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(768, 314);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = " ";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 381);
+            this.ClientSize = new System.Drawing.Size(864, 399);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(880, 420);
-            this.MinimumSize = new System.Drawing.Size(880, 420);
+            this.MaximumSize = new System.Drawing.Size(880, 438);
+            this.MinimumSize = new System.Drawing.Size(880, 438);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iTrucking | Личный кабинет сотрудника";
@@ -284,5 +307,7 @@
         private System.Windows.Forms.ToolStripMenuItem сотрудникToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem услугиToolStripMenuItem;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

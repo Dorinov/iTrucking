@@ -30,6 +30,28 @@ namespace iTrucking
 
         private void button1_Click(object sender, EventArgs e) // вход
         {
+            trySignIn();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) // логин
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e) // пасс
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e) // регистрация
+        {
+            Reg reg = new Reg();
+            reg.Show();
+            Hide();
+        }
+
+        private void trySignIn()
+        {
             click += 1;
             b_stopClick = true;
             db_con.Open();
@@ -97,21 +119,17 @@ namespace iTrucking
             db_con.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) // логин
+        private void textBox2_KeyDown_1(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                trySignIn();
+            }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e) // пасс
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e) // регистрация
-        {
-            Reg reg = new Reg();
-            reg.Show();
-            Hide();
+            //
         }
     }
 }

@@ -36,26 +36,51 @@ namespace iTrucking
         private void button2_Click(object sender, EventArgs e) // reg
         {
             db_con.Open();
-
-            NpgsqlCommand cmd1 = new NpgsqlCommand("select Ид_сотрудника from сотрудник", db_con);
-            using (var reader = cmd1.ExecuteReader())
+            NpgsqlCommand cmd = new NpgsqlCommand("select номер_телефона from сотрудник", db_con);
+            bool found = false;
+            using (var reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    maxId = Convert.ToInt32(reader["Ид_сотрудника"]);
+                    string s = Convert.ToString(reader["номер_телефона"]);
+                    if (s == textBox1.Text)
+                    {
+                        found = true;
+                        break;
+                    }
                 }
 
             }
-            maxId += 1;
 
-            NpgsqlCommand cmd2 = new NpgsqlCommand($"insert into сотрудник values({maxId},null,null,null,'{textBox1.Text}',null,'{textBox2.Text}')", db_con);
-            cmd2.ExecuteNonQuery();
+            if (found)
+            {
+                MessageBox.Show(
+                    "Аккаунт с таким логином уже существует, вернитесь ко входу!",
+                    "Ошибка регистрации",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            else
+            {
+                NpgsqlCommand cmd1 = new NpgsqlCommand("select Ид_сотрудника from сотрудник", db_con);
+                using (var reader = cmd1.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        maxId = Convert.ToInt32(reader["Ид_сотрудника"]);
+                    }
 
+                }
+                maxId += 1;
+
+                NpgsqlCommand cmd2 = new NpgsqlCommand($"insert into сотрудник values({maxId},null,null,null,'{textBox1.Text}',null,'{textBox2.Text}')", db_con);
+                cmd2.ExecuteNonQuery();
+
+                Main main = new Main();
+                main.Show();
+                Hide();
+            }
             db_con.Close();
-
-            Main main = new Main();
-            main.Show();
-            Hide();
         }
 
         private void button1_Click(object sender, EventArgs e) // back

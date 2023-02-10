@@ -35,6 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.таблицыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,6 @@
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -136,6 +136,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(841, 333);
             this.panel1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(768, 314);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = " ";
             // 
             // button6
             // 
@@ -250,15 +259,6 @@
             this.label1.TabIndex = 9;
             this.label1.Text = " ";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(768, 314);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = " ";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,7 +272,7 @@
             this.MinimumSize = new System.Drawing.Size(880, 438);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "iTrucking | Личный кабинет сотрудника";
+            this.Text = "iTrucking | Панель сотрудника";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
